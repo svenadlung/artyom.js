@@ -1698,14 +1698,18 @@ export default class Artyom {
      * @param {Object} callbacks
      * @returns {undefined}
      */
-    say(message: string, callbacks?: SayCallbacksObject) {
+    say(message: string, callbacks?: SayCallbacksObject, customProcessor?: Function) {
         let artyom_say_max_chunk_length = 115;
         let _this = this;
         let definitive = [];
 
-        console.warn('DO IT HERE')
-        alert('DO IT HERE')
+        console.log('SAY', message)
+        
+        if (customProcessor) {
+            customProcessor(message);
 
+            return;
+        }
 
         if (this.speechSupported()) {
             if (typeof (message) != 'string') {

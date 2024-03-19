@@ -1427,12 +1427,15 @@ var Artyom = /** @class */ (function () {
      * @param {Object} callbacks
      * @returns {undefined}
      */
-    Artyom.prototype.say = function (message, callbacks) {
+    Artyom.prototype.say = function (message, callbacks, customProcessor) {
         var artyom_say_max_chunk_length = 115;
         var _this = this;
         var definitive = [];
-        console.warn('DO IT HERE');
-        alert('DO IT HERE');
+        console.log('SAY', message);
+        if (customProcessor) {
+            customProcessor(message);
+            return;
+        }
         if (this.speechSupported()) {
             if (typeof (message) != 'string') {
                 return console.warn("Artyom expects a string to speak ".concat(typeof message, " given"));

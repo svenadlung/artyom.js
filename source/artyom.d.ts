@@ -55,6 +55,7 @@ interface ArtyomProperties {
     obeying?: boolean;
     soundex?: boolean;
     name?: string;
+    customTTSProcessor?: any;
 }
 
 interface PromptOptions {

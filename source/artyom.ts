@@ -1079,6 +1079,10 @@ export default class Artyom {
             this.ArtyomProperties.name = config.name;
         }
 
+        if(config.hasOwnProperty("customTTSProcessor")){
+            this.ArtyomProperties.customTTSProcessor = config.customTTSProcessor;
+        }
+
         if(config.hasOwnProperty("debug")){
             this.ArtyomProperties.debug = config.debug;
         }else{
@@ -1698,15 +1702,17 @@ export default class Artyom {
      * @param {Object} callbacks
      * @returns {undefined}
      */
-    say(message: string, callbacks?: SayCallbacksObject, customProcessor?: Function) {
+    say(message: string, callbacks?: SayCallbacksObject) {
         let artyom_say_max_chunk_length = 115;
         let _this = this;
         let definitive = [];
 
         console.log('SAY', message)
-        
-        if (customProcessor) {
-            customProcessor(message);
+
+        if (typeof (_this.ArtyomProperties.customTTSProcessor) === "function") {
+            console.log('SAY2', message)
+
+            _this.ArtyomProperties.customTTSProcessor(message);
 
             return;
         }

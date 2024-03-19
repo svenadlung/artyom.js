@@ -887,6 +887,9 @@ var Artyom = /** @class */ (function () {
         if (config.hasOwnProperty("name")) {
             this.ArtyomProperties.name = config.name;
         }
+        if (config.hasOwnProperty("customTTSProcessor")) {
+            this.ArtyomProperties.customTTSProcessor = config.customTTSProcessor;
+        }
         if (config.hasOwnProperty("debug")) {
             this.ArtyomProperties.debug = config.debug;
         }
@@ -1427,13 +1430,14 @@ var Artyom = /** @class */ (function () {
      * @param {Object} callbacks
      * @returns {undefined}
      */
-    Artyom.prototype.say = function (message, callbacks, customProcessor) {
+    Artyom.prototype.say = function (message, callbacks) {
         var artyom_say_max_chunk_length = 115;
         var _this = this;
         var definitive = [];
         console.log('SAY', message);
-        if (customProcessor) {
-            customProcessor(message);
+        if (typeof (_this.ArtyomProperties.customTTSProcessor) === "function") {
+            console.log('SAY2', message);
+            _this.ArtyomProperties.customTTSProcessor(message);
             return;
         }
         if (this.speechSupported()) {

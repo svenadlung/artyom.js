@@ -1434,9 +1434,7 @@ var Artyom = /** @class */ (function () {
         var artyom_say_max_chunk_length = 115;
         var _this = this;
         var definitive = [];
-        console.log('SAY', message);
         if (typeof (_this.ArtyomProperties.customTTSProcessor) === "function") {
-            console.log('SAY2', message);
             _this.ArtyomProperties.customTTSProcessor(message);
             return;
         }

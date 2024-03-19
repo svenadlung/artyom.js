@@ -1,6 +1,6 @@
 {
     "name": "artyom.js",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "description": "Artyom is a Robust Wrapper of the Google Chrome SpeechSynthesis and SpeechRecognition that allows you to create a virtual assistent",
     "main": "build/artyom.js",
     "typings": "source/artyom.d.ts",

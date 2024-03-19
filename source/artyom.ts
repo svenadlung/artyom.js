@@ -1707,11 +1707,7 @@ export default class Artyom {
         let _this = this;
         let definitive = [];
 
-        console.log('SAY', message)
-
         if (typeof (_this.ArtyomProperties.customTTSProcessor) === "function") {
-            console.log('SAY2', message)
-
             _this.ArtyomProperties.customTTSProcessor(message);
 
             return;

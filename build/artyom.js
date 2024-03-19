@@ -13,7 +13,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /// <reference path="artyom.d.ts" />
 // Remove "export default " keywords if willing to build with `npm run artyom-build-window`
-var Artyom = (function () {
+var Artyom = /** @class */ (function () {
     // Triggered at the declaration of 
     function Artyom() {
         this.ArtyomCommands = [];
@@ -25,7 +25,7 @@ var Artyom = (function () {
             // Italian
             "it-IT": ["Google italiano", "it-IT", "it_IT"],
             // Japanese
-            "jp-JP": ["Google 日本人", "ja-JP", "ja_JP"],
+            "ja-JP": ["Google 日本人", "ja-JP", "ja_JP"],
             // English USA
             "en-US": ["Google US English", "en-US", "en_US"],
             // English UK
@@ -175,20 +175,20 @@ var Artyom = (function () {
      * @returns {undefined}
      */
     Artyom.prototype.debug = function (message, type) {
-        var preMessage = "[v" + this.getVersion() + "] Artyom.js";
+        var preMessage = "[v".concat(this.getVersion(), "] Artyom.js");
         if (this.ArtyomProperties.debug === true) {
             switch (type) {
                 case "error":
-                    console.log("%c" + preMessage + ":%c " + message, 'background: #C12127; color: black;', 'color:black;');
+                    console.log("%c".concat(preMessage, ":%c ").concat(message), 'background: #C12127; color: black;', 'color:black;');
                     break;
                 case "warn":
                     console.warn(message);
                     break;
                 case "info":
-                    console.log("%c" + preMessage + ":%c " + message, 'background: #4285F4; color: #FFFFFF', 'color:black;');
+                    console.log("%c".concat(preMessage, ":%c ").concat(message), 'background: #4285F4; color: #FFFFFF', 'color:black;');
                     break;
                 default:
-                    console.log("%c" + preMessage + ":%c " + message, 'background: #005454; color: #BFF8F8', 'color:black;');
+                    console.log("%c".concat(preMessage, ":%c ").concat(message), 'background: #005454; color: #BFF8F8', 'color:black;');
                     break;
             }
         }
@@ -220,7 +220,7 @@ var Artyom = (function () {
             };
         }
         if (window.location.protocol != "https:") {
-            console.warn("Warning: artyom is being executed using the '" + window.location.protocol + "' protocol. The continuous mode requires a secure protocol (HTTPS)");
+            console.warn("Warning: artyom is being executed using the '".concat(window.location.protocol, "' protocol. The continuous mode requires a secure protocol (HTTPS)"));
         }
         return false;
     };
@@ -250,7 +250,7 @@ var Artyom = (function () {
         // If artyom was initialized with a name, verify that the name begins with it to allow the execution of commands.
         if (_this.ArtyomProperties.name) {
             if (voz.indexOf(_this.ArtyomProperties.name) != 0) {
-                _this.debug("Artyom requires with a name \"" + _this.ArtyomProperties.name + "\" but the name wasn't spoken.", "warn");
+                _this.debug("Artyom requires with a name \"".concat(_this.ArtyomProperties.name, "\" but the name wasn't spoken."), "warn");
                 return;
             }
             // Remove name from voice command
@@ -424,7 +424,7 @@ var Artyom = (function () {
                         continue; //Jump wildcard commands
                     }
                     if (_this.soundex(voz) == _this.soundex(opcion)) {
-                        _this.debug(">> Matched Soundex command '" + opcion + "' AGAINST '" + voz + "' with index " + c, "info");
+                        _this.debug(">> Matched Soundex command '".concat(opcion, "' AGAINST '").concat(voz, "' with index ").concat(c), "info");
                         encontrado = parseInt(c.toString());
                         _this.triggerEvent(_this.ArtyomGlobalEvents.COMMAND_MATCHED);
                         var response = {
@@ -436,7 +436,7 @@ var Artyom = (function () {
                 }
             }
         }
-        _this.debug("Event reached : " + _this.ArtyomGlobalEvents.NOT_COMMAND_MATCHED);
+        _this.debug("Event reached : ".concat(_this.ArtyomGlobalEvents.NOT_COMMAND_MATCHED));
         _this.triggerEvent(_this.ArtyomGlobalEvents.NOT_COMMAND_MATCHED);
         return;
     };
@@ -1070,7 +1070,7 @@ var Artyom = (function () {
     Artyom.prototype.getVoice = function (languageCode) {
         var voiceIdentifiersArray = this.ArtyomVoicesIdentifiers[languageCode];
         if (!voiceIdentifiersArray) {
-            console.warn("The providen language " + languageCode + " isn't available, using English Great britain as default");
+            console.warn("The providen language ".concat(languageCode, " isn't available, using English Great britain as default"));
             voiceIdentifiersArray = this.ArtyomVoicesIdentifiers["en-GB"];
         }
         var voice = undefined;
@@ -1431,9 +1431,11 @@ var Artyom = (function () {
         var artyom_say_max_chunk_length = 115;
         var _this = this;
         var definitive = [];
+        console.warn('DO IT HERE');
+        alert('DO IT HERE');
         if (this.speechSupported()) {
             if (typeof (message) != 'string') {
-                return console.warn("Artyom expects a string to speak " + typeof message + " given");
+                return console.warn("Artyom expects a string to speak ".concat(typeof message, " given"));
             }
             if (!message.length) {
                 return console.warn("Cannot speak empty string");

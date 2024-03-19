@@ -1703,6 +1703,10 @@ export default class Artyom {
         let _this = this;
         let definitive = [];
 
+        console.warn('DO IT HERE')
+        alert('DO IT HERE')
+
+
         if (this.speechSupported()) {
             if (typeof (message) != 'string') {
                 return console.warn(

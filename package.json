@@ -10,7 +10,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/sdkcarlos/artyom.js.git"
+        "url": "git+https://github.com/svenadlung/artyom.js.git"
     },
     "keywords": [
         "speech",
@@ -25,7 +25,7 @@
     "author": "Carlos Delgado",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/sdkcarlos/artyom.js/issues"
+        "url": "https://github.com/svenadlung/artyom.js/issues"
     },
     "homepage": "https://sdkcarlos.github.io/sites/artyom.html"
 }
